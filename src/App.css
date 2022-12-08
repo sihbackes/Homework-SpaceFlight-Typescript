@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.card-pic {
+  height: 20rem;
+}

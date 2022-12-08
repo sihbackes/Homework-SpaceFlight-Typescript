@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card, Button, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { articles } from "../types";
 
 const FetchComponent = () => {
@@ -16,7 +17,7 @@ const FetchComponent = () => {
       );
       if (response.ok) {
         let data = await response.json();
-        console.log(data);
+
         setArticles(data);
       } else {
         console.log("error");
@@ -30,11 +31,12 @@ const FetchComponent = () => {
     <Container>
       {articles.map((article) => (
         <Card key={article.id} className="mt-3">
-          <Card.Img variant="top" src={article.imageUrl} />
+          <Card.Img variant="top" src={article.imageUrl} className="card-pic" />
           <Card.Body>
             <Card.Title>{article.title}</Card.Title>
-            <Card.Text>{article.description}</Card.Text>
-            <Button variant="primary">Read more</Button>
+            <Link to={"details/" + article.id}>
+              <Button variant="primary">More Info</Button>
+            </Link>
           </Card.Body>
         </Card>
       ))}

@@ -4,4 +4,5 @@ export interface articles {
   id: number;
   imageUrl: string;
   sumary: string;
+  url: string;
 }
